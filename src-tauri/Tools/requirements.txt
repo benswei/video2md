@@ -1,0 +1,9 @@
+# Video2MD Python 引擎依赖
+# 基础的 requests / pydantic / yt-dlp 会被 transcribe.py 在运行时自动检测并安装；
+# 这里列出完整清单，方便一次性预装（推荐）。
+requests>=2.31.0
+pydantic>=2.5.0
+yt-dlp>=2024.1.0
+google-genai>=0.3.0
+markdown>=3.5.0
+pypdf>=4.0.0

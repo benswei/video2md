@@ -1,0 +1,26 @@
+{
+  "name": "video2md",
+  "private": true,
+  "version": "0.1.8",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vue-tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "tauri": "tauri",
+    "tauri:dev": "tauri dev",
+    "tauri:build": "tauri build"
+  },
+  "dependencies": {
+    "vue": "^3.4.21",
+    "@tauri-apps/api": "^2.0.0-beta",
+    "@tauri-apps/plugin-shell": "^2.0.0-beta"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.0.4",
+    "typescript": "^5.4.5",
+    "vite": "^5.2.0",
+    "vue-tsc": "^2.0.11",
+    "@tauri-apps/cli": "^2.0.0-beta"
+  }
+}
