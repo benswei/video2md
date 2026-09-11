@@ -102,6 +102,7 @@ async function onRename() {
         <span v-if="projectStore.deps">Python {{ projectStore.deps.python ? '✓' : '✗' }} · FFmpeg {{ projectStore.deps.ffmpeg ? '✓' : '✗' }} · B站 {{ projectStore.deps.bilibili ? '✓' : '—' }} · YouTube {{ projectStore.deps.youtube ? '✓' : '—' }}</span>
         <span v-else>依赖检测中…</span>
       </div>
+      <div class="heritage-foot-badge">HeritageScribe v2.0.0 · Local-First</div>
     </div>
   </aside>
 </template>
@@ -241,6 +242,17 @@ async function onRename() {
   font-family: var(--font-mono);
 }
 .storage-info svg { width: 14px; height: 14px; flex-shrink: 0; }
+.heritage-foot-badge {
+  font-size: 10px;
+  color: #0d9488;
+  font-weight: 600;
+  font-family: var(--font-mono);
+  padding: 3px 6px;
+  border-radius: 4px;
+  background: rgba(13, 148, 136, 0.08);
+  margin-top: 4px;
+  display: inline-block;
+}
 
 @media (max-width: 900px) {
   .sidebar {

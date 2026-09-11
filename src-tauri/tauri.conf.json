@@ -1,8 +1,8 @@
 {
   "$schema": "https://raw.githubusercontent.com/nicmr/tauri-v2-schema/main/schema.json",
-  "productName": "Video2MD",
-  "version": "0.1.8",
-  "identifier": "com.video2md.app",
+  "productName": "HeritageScribe",
+  "version": "2.0.0",
+  "identifier": "com.heritagescribe.app",
   "build": {
     "beforeDevCommand": "npm run dev",
     "devUrl": "http://localhost:1420",
@@ -13,7 +13,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "Video2MD — 知识炼金工坊",
+        "title": "HeritageScribe (声华笔记) — 华裔双语讲座与口述历史数字化工作台 v2.0",
         "width": 1280,
         "height": 800,
         "minWidth": 900,

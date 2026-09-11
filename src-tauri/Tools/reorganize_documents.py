@@ -36,12 +36,33 @@ def main():
         output = pathlib.Path(args.output_dir) / "系列课程_重整.md"
         output.write_text(text, encoding="utf-8")
         print(f"OUTPUT:{output}", flush=True)
+        _extract_anki_deck_if_present(text, output)
     else:
         for p in paths:
             text = optimize_to_markdown(read_document(p), args.provider, args.api_url, args.api_key, args.model_name, args.prompt)
             output = pathlib.Path(args.output_dir) / f"{pathlib.Path(p).stem}_重整.md"
             output.write_text(text, encoding="utf-8")
             print(f"OUTPUT:{output}", flush=True)
+            _extract_anki_deck_if_present(text, output)
+
+def _extract_anki_deck_if_present(markdown_text: str, md_path: pathlib.Path):
+    """如果内容中包含词汇表或 Anki 数据，自动分离生成同名的 .anki.csv 文件供直接导入"""
+    try:
+        anki_rows = []
+        for line in markdown_text.splitlines():
+            line_s = line.strip()
+            if "\t" in line_s and len(line_s.split("\t")) >= 2:
+                anki_rows.append(line_s)
+            elif "|" in line_s:
+                parts = [p.strip() for p in line_s.split("|") if p.strip()]
+                if len(parts) >= 3 and not any(k in parts[0] for k in ["汉字", "Hanzi", "---", "生词"]):
+                    anki_rows.append(f"{parts[0]} [{parts[1]}]\t{parts[2]}\tHeritageScribe")
+        if anki_rows:
+            csv_path = md_path.with_name(f"{md_path.stem}_Anki.csv")
+            csv_path.write_text("#separator:Tab\n#html:true\n" + "\n".join(anki_rows), encoding="utf-8")
+            print(f"OUTPUT:{csv_path}", flush=True)
+    except Exception as e:
+        print(f"Warning: Anki deck extraction skipped: {e}", file=sys.stderr)
 
 if __name__ == "__main__":
     main()

@@ -1,8 +1,8 @@
 [package]
-name = "video2md"
-version = "0.1.7"
-description = "Video2MD - Convert video/audio materials to structured knowledge handbooks"
-authors = ["Video2MD Team"]
+name = "heritagescribe"
+version = "2.0.0"
+description = "HeritageScribe - Local-first bilingual lecture transcriber and oral history archiver for heritage students"
+authors = ["Michael Yang <microsoftgame>", "HeritageScribe Contributors"]
 edition = "2021"
 
 [lib]

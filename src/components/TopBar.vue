@@ -1,6 +1,6 @@
 <script setup lang="ts">
 defineProps<{ projectName?: string }>();
-defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': [] }>();
+defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': []; 'open-guide': [] }>();
 </script>
 
 <template>
@@ -12,13 +12,32 @@ defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': [] }>(
     </button>
 
     <div class="brand">
-      <span class="brand-mark">V2</span>
-      <span>Video2MD</span>
+      <span class="brand-mark">HS</span>
+      <div class="brand-text">
+        <span class="brand-title">HeritageScribe</span>
+        <span class="brand-sub">声华笔记 · v2.0</span>
+      </div>
+      <span class="edition-badge">Heritage Edition</span>
     </div>
 
     <span class="project-name" v-if="projectName">{{ projectName }}</span>
 
     <div class="spacer" />
+
+    <div class="privacy-badge" title="端侧零泄密：音频与口述历史全程在本地处理，绝不上云">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+        <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+      </svg>
+      <span>100% Local Privacy</span>
+    </div>
+
+    <button class="btn" title="华裔学术与口述历史指南" @click="$emit('open-guide')">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><line x1="12" y1="17" x2="12.01" y2="17"/>
+      </svg>
+      指南
+    </button>
 
     <button class="btn" title="配置中心" @click="$emit('open-settings')">
       <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -62,16 +81,40 @@ defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': [] }>(
 .brand {
   display: flex; align-items: center; gap: var(--s-2);
   font-family: var(--font-display);
-  font-weight: 700; font-size: 15px;
-  letter-spacing: -0.02em;
   color: var(--text-1);
 }
 .brand-mark {
-  width: 26px; height: 26px;
-  border-radius: var(--r-sm);
-  background: linear-gradient(135deg, var(--accent), oklch(58% 0.14 40));
+  width: 28px; height: 28px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #0d9488, #b45309);
   display: flex; align-items: center; justify-content: center;
-  color: #fff; font-size: 12px; font-weight: 700;
+  color: #fff; font-size: 13px; font-weight: 800;
+  letter-spacing: -0.04em;
+  box-shadow: 0 2px 8px rgba(13, 148, 136, 0.25);
+}
+.brand-text {
+  display: flex; flex-direction: column;
+}
+.brand-title {
+  font-weight: 700; font-size: 14px;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+.brand-sub {
+  font-size: 10px;
+  color: var(--text-3);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.edition-badge {
+  font-size: 10px;
+  padding: 2px 7px;
+  background: rgba(180, 83, 9, 0.12);
+  color: #b45309;
+  border: 1px solid rgba(180, 83, 9, 0.25);
+  border-radius: 100px;
+  font-weight: 600;
+  letter-spacing: 0.03em;
 }
 
 .project-name {
@@ -82,9 +125,25 @@ defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': [] }>(
   border-radius: 100px;
   font-weight: 500;
   white-space: nowrap;
-  max-width: 200px;
+  max-width: 180px;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+.privacy-badge {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  padding: 4px 9px;
+  background: rgba(16, 185, 129, 0.08);
+  border: 1px solid rgba(16, 185, 129, 0.25);
+  border-radius: 6px;
+  color: #059669;
+  font-size: 11px;
+  font-weight: 600;
+}
+.privacy-badge svg {
+  width: 12px; height: 12px;
 }
 
 .spacer { flex: 1; }
@@ -108,7 +167,7 @@ defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': [] }>(
 
 @media (max-width: 900px) {
   .menu-btn { display: flex; }
-  .project-name { display: none; }
+  .project-name, .edition-badge, .privacy-badge { display: none; }
   .btn span { display: none; }
 }
 </style>

@@ -15,11 +15,11 @@ import { uiStore, dismissNotice, notify } from './stores/ui';
 const currentTab = ref('workspace');
 const sidebarOpen = ref(false);
 const detailOpen = ref(false);
-const infoPanel = ref<'help' | 'changelog' | null>(null);
+const infoPanel = ref<'help' | 'changelog' | 'guide' | null>(null);
 
 const tabs = [
-  { id: 'workspace', label: '转换工作台', icon: 'zap' },
-  { id: 'results', label: '结果', icon: 'file' },
+  { id: 'workspace', label: '转写工作台', icon: 'zap' },
+  { id: 'results', label: '知识结果', icon: 'file' },
   { id: 'documents', label: '文档重整', icon: 'file' },
   { id: 'settings', label: '设置', icon: 'gear' },
 ];
@@ -45,7 +45,13 @@ onMounted(async () => {
 
 <template>
   <div class="app">
-    <TopBar :project-name="projectStore.project?.name ?? ''" @toggle-sidebar="toggleSidebar" @open-settings="switchTab('settings')" @toggle-detail="detailOpen = !detailOpen" />
+    <TopBar
+      :project-name="projectStore.project?.name ?? ''"
+      @toggle-sidebar="toggleSidebar"
+      @open-settings="switchTab('settings')"
+      @toggle-detail="detailOpen = !detailOpen"
+      @open-guide="infoPanel = 'guide'"
+    />
     
     <div class="main-layout" :class="{ 'detail-open': detailOpen }">
       <!-- Sidebar -->
@@ -80,25 +86,53 @@ onMounted(async () => {
     </div>
 
     <div v-if="infoPanel" class="modal-backdrop" @click.self="infoPanel = null">
-      <section class="info-modal" role="dialog" aria-modal="true" :aria-label="infoPanel === 'help' ? '使用帮助' : '更新日志'">
+      <section class="info-modal" role="dialog" aria-modal="true" :aria-label="infoPanel === 'guide' ? '华裔学者与口述历史指南' : (infoPanel === 'help' ? '使用帮助' : '更新日志')">
         <header class="info-head">
           <div>
-            <span class="eyebrow">VIDEO2MD GUIDE</span>
-            <h2>{{ infoPanel === 'help' ? '三步完成知识转写' : '版本 0.1 · MVP' }}</h2>
+            <span class="eyebrow">{{ infoPanel === 'guide' ? 'HERITAGE USER GUIDE' : (infoPanel === 'help' ? 'HERITAGESCRIBE QUICKSTART' : 'RELEASE 2.0.0') }}</span>
+            <h2>{{ infoPanel === 'guide' ? '华裔双语学习与口述历史数字化指南' : (infoPanel === 'help' ? '三步完成双语知识转写' : '版本 2.0.0 · Heritage Edition') }}</h2>
           </div>
           <button class="icon-close" aria-label="关闭" @click="infoPanel = null">×</button>
         </header>
-        <div v-if="infoPanel === 'help'" class="guide-grid">
-          <article><b>01</b><h3>导入素材</h3><p>在「准备」页选择本地音视频、文档，或添加公开视频链接。</p></article>
-          <article><b>02</b><h3>配置并转换</h3><p>在「设置」中选择转写引擎；Bcut 免密钥，Gemini 与自定义服务需填写凭据。</p></article>
-          <article><b>03</b><h3>预览与导出</h3><p>在「结果」页预览 Markdown、HTML、图片和 PDF，并导出到指定目录。</p></article>
-          <p class="guide-note">运行前请确认侧栏底部 Python 与 ffmpeg 均为 ✓。密钥当前随项目保存在本机，请勿分享项目数据目录。</p>
+
+        <!-- 华裔双语指南 -->
+        <div v-if="infoPanel === 'guide'" class="guide-grid">
+          <article>
+            <b>01</b>
+            <h3>双语课程 Cornell 笔记</h3>
+            <p>在转换工作台选择「华裔双语课程」预设，自动为中文/东亚课程生成中英分轨对照、拼音脚手架与生词表，完美适配 Obsidian 双链。</p>
+          </article>
+          <article>
+            <b>02</b>
+            <h3>长辈口述历史与家庭档案</h3>
+            <p>选择「长辈口述历史」预设。支持中英夹杂与带口音访谈，生成原汁原味的叙事实录、移民大事年表与后辈寄语。</p>
+          </article>
+          <article>
+            <b>03</b>
+            <h3>Anki 闪卡一键提取</h3>
+            <p>在结果页预览任意 Markdown，点击「导出 Anki 闪卡」即可自动提取文中的成语、文化专有名词为 Anki TSV 导入包。</p>
+          </article>
+          <p class="guide-note">🔒 隐私承诺：所有音视频与访谈均在本地处理，绝不上传商业云端，保护长辈与家庭历史零泄露。</p>
         </div>
+
+        <div v-else-if="infoPanel === 'help'" class="guide-grid">
+          <article><b>01</b><h3>导入音视频/录音</h3><p>在「准备」页选择本地音视频、长辈录音、文档，或添加公开讲座链接。</p></article>
+          <article><b>02</b><h3>选择场景预设</h3><p>在「华裔双语场景」中点击对应的预设卡片，自动匹配专属整理提示词。</p></article>
+          <article><b>03</b><h3>导出 Obsidian & Anki</h3><p>在「结果」页一键导出为带 Callout 的 Obsidian 康奈尔笔记或 Anki 闪卡包。</p></article>
+          <p class="guide-note">运行前请确认侧栏底部 Python 与 ffmpeg 均为 ✓。密钥当前随项目保存在本机 DPAPI 加密存储中。</p>
+        </div>
+
         <div v-else class="changelog">
-          <span class="release-pill">当前版本</span>
-          <h3>可用闭环与体验加固</h3>
-          <ul><li>项目创建、素材导入、真实转写与产物预览</li><li>Gemini、Bcut 与 OpenAI 兼容转写引擎</li><li>Markdown 阅读器、批量导出与下载进度</li><li>统一错误反馈、详情面板与键盘焦点体验</li></ul>
-          <p>本版本聚焦稳定的批量转写队列、来源级结果管理和常用输出格式。</p>
+          <span class="release-pill">v2.0.0 华裔专属版</span>
+          <h3>从个人工具到华裔大学生成长利器</h3>
+          <ul>
+            <li>🎓 <b>华裔专属场景预设</b>：内置双语课程、长辈口述历史、Anki 闪卡与中英语码转换专属提示词。</li>
+            <li>📇 <b>Anki 闪卡生成器</b>：一键将讲座生词、文化成语自动导出为标准 Anki CSV 卡片包。</li>
+            <li>📚 <b>Obsidian 康奈尔笔记</b>：输出适配 Obsidian Callouts (`> [!NOTE]`) 的结构化双语笔记。</li>
+            <li>🀄 <b>拼音注音脚手架</b>：提供 HTML &lt;ruby&gt; 拼音注音高亮，帮助华裔学生攻克认字障碍。</li>
+            <li>🔒 <b>100% 本地端侧隐私</b>：基于 Tauri v2 + Rust，保障家庭口述历史与敏感访谈绝不上云。</li>
+          </ul>
+          <p>本版本专为美国华裔大学生与家庭口述历史数字化打造，融合系统级工程效率与人文温度。</p>
         </div>
       </section>
     </div>
