@@ -44,6 +44,13 @@ const heritagePresets = [
     templateId: 'anki_vocab'
   },
   {
+    id: 'reading_seminar',
+    icon: '📖',
+    title: '东亚文史研讨',
+    sub: '典故释读 + 争鸣对齐',
+    templateId: 'reading_seminar'
+  },
+  {
     id: 'extract',
     icon: '📝',
     title: '通用干货提炼',

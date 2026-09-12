@@ -15,7 +15,7 @@ defineEmits<{ 'toggle-sidebar': []; 'toggle-detail': []; 'open-settings': []; 'o
       <span class="brand-mark">HS</span>
       <div class="brand-text">
         <span class="brand-title">HeritageScribe</span>
-        <span class="brand-sub">声华笔记 · v2.0</span>
+        <span class="brand-sub">声华笔记 · v2.1</span>
       </div>
       <span class="edition-badge">Heritage Edition</span>
     </div>

@@ -51,13 +51,30 @@ export const defaultPromptTemplates: PromptTemplate[] = [
 4. 输出中英双语的 Executive Summary 及 Action Items。`
   },
   {
+    id: 'reading_seminar',
+    title: '📖 东亚文史精读与双语研讨 (East Asian Seminar & Text Study)',
+    category: 'heritage',
+    badge: '研讨',
+    description: '专为大学东亚系研讨课与古籍文史精读设计：文言/白话对照、史料背景引申、核心典故注解与思辨批判。',
+    content: `你是一位专修东亚文史与亚裔美国人研究（East Asian Studies）的双语学术助教。请将本篇研讨录音/文献讲解整理为深度研讨笔记：
+1. 【研讨议题与史料源流】：研讨的核心议题、引用的历史文献或第一手史料（Primary Sources）、主要学派争鸣。
+2. 【关键典故与文史概念释读】：
+   - 提取研讨中涉及的中文成语、文言句段或历史专有名词；
+   - 给出拼音、英文对照、典故出处（Historical Allusion）与在当下讨论中的隐喻义。
+3. 【中英双语对齐研讨记录 (Parallel Seminar Debates)】：
+   - 记录各方学者的理论论点与反驳，采用中英双语分轨呈现；
+   - 对重要原文引述保留中文原貌并附精准学术英译。
+4. 【生词与概念闪卡表格】：以 Markdown 表格列出核心生词与学术概念，表头必须为：| 汉字 (Hanzi) | 拼音 (Pinyin) | English Definition | 讲座语境 (Context) |
+5. 【延伸研讨与论文选题建议】：结合当今亚裔跨国文化流动，提出 2-3 个可写成 Term Paper 的思辨问题。`
+  },
+  {
     id: 'anki_vocab',
     title: '📇 Anki 双语生词与闪卡提取 (Anki Flashcards Deck)',
     category: 'heritage',
     badge: '闪卡',
     description: '从音视频中提取高级中文成语、文化隐喻与学术词汇，输出可直接导入 Anki 的闪卡格式。',
     content: `从本音频中提取所有适合华裔学生学习的高级中文词汇、成语、历史文化专有名词：
-1. 输出标准 Markdown 表格；
+1. 输出标准 Markdown 表格，表头为：| 汉字 (Hanzi) | 拼音 (Pinyin) | English Definition | 讲座语境 (Context) |
 2. 并在最后提供一个代码块（Codeblock），以 CSV/TSV 格式输出可以直接导入 Anki 的闪卡数据：
    格式为：Front (中文+拼音)\tBack (英文释义+例句)\tTags (主题标签)`
   },

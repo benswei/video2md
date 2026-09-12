@@ -4,6 +4,30 @@ All notable changes to the **HeritageScribe** (formerly Video2MD) project are do
 
 ---
 
+## [2.1.0] - 2026-09-12 · Daily Scaffolding Edition (学习日常深化版)
+
+### 🚀 新增功能与深度体验优化 (New Features & UX Enhancements)
+- **🔍 讲座长文内快速检索与实时高亮 (In-Document Search & Highlight)**：
+  - 针对长达 1-2 小时的学术讲座与家族访谈，结果页预览窗口新增文内极速搜索与匹配计数器（`X 处匹配`）；
+  - 自动对长文本中的命中词进行 `<mark class="doc-match">` 高亮渲染，支持一键清空与快速翻寻。
+- **🀄 华裔文史拼音字典全面扩容至 80+ 核心高频词**：
+  - 全面覆盖：排华法案（1882）、天使岛拘留所、纸儿子、金山客、同乡会、公所会馆、侨乡银信、文史研讨、宗族家谱与传统节日文化；
+  - 算法优化：支持按词条长度降序贪婪匹配，彻底根除子词提前替换导致的拼音嵌套损坏问题。
+- **📖 新增「东亚文史研讨 (Reading Seminar)」专属场景预设**：
+  - 专为大学东亚系研讨课与一手文史史料精读打造；
+  - 自动提炼历史文献源流、学者核心学派争鸣、典故隐喻与 Term Paper 论文选题构思。
+- **🌐 四重视图模式快速切换 (Quad-View Navigation)**：
+  - **标准正文 (Standard)**：保留原始 Markdown 排版；
+  - **🀄 拼音注音 (Ruby Pinyin)**：端侧动态为 80+ 华裔文史词汇打上 `<ruby>` 拼音高亮；
+  - **🌐 双语对齐 (Parallel Bilingual)**：纯净提取中英分轨对照段落，无缝粘贴至课堂作业或论文写作；
+  - **🎯 考前要点 (Cues & Vocab)**：自动抓取 Cornell 思考线索与重点生词速记表。
+- **⚡ 表格行级极速操作 (Row-Level Quick Actions)**：
+  - 在结果文件列表中新增无需打开预览弹窗的「快速复制」与「闪卡」直提下载按钮，操作流转效率大幅提升。
+- **📇 多格式 Anki 闪卡导出**：
+  - 支持原生 TSV（Tab-separated，Anki 官方首选）与标准 CSV 格式双通道下载。
+
+---
+
 ## [2.0.0] - 2026-09-11 · Heritage Edition (华裔专属升级版)
 
 ### 🌟 核心定位跃迁 (Product Repositioning)

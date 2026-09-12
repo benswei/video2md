@@ -89,8 +89,8 @@ onMounted(async () => {
       <section class="info-modal" role="dialog" aria-modal="true" :aria-label="infoPanel === 'guide' ? '华裔学者与口述历史指南' : (infoPanel === 'help' ? '使用帮助' : '更新日志')">
         <header class="info-head">
           <div>
-            <span class="eyebrow">{{ infoPanel === 'guide' ? 'HERITAGE USER GUIDE' : (infoPanel === 'help' ? 'HERITAGESCRIBE QUICKSTART' : 'RELEASE 2.0.0') }}</span>
-            <h2>{{ infoPanel === 'guide' ? '华裔双语学习与口述历史数字化指南' : (infoPanel === 'help' ? '三步完成双语知识转写' : '版本 2.0.0 · Heritage Edition') }}</h2>
+            <span class="eyebrow">{{ infoPanel === 'guide' ? 'HERITAGE USER GUIDE' : (infoPanel === 'help' ? 'HERITAGESCRIBE QUICKSTART' : 'RELEASE 2.1.0') }}</span>
+            <h2>{{ infoPanel === 'guide' ? '华裔双语学习与口述历史数字化指南' : (infoPanel === 'help' ? '三步完成双语知识转写' : '版本 2.1.0 · Daily Scaffolding Edition') }}</h2>
           </div>
           <button class="icon-close" aria-label="关闭" @click="infoPanel = null">×</button>
         </header>
@@ -100,39 +100,40 @@ onMounted(async () => {
           <article>
             <b>01</b>
             <h3>双语课程 Cornell 笔记</h3>
-            <p>在转换工作台选择「华裔双语课程」预设，自动为中文/东亚课程生成中英分轨对照、拼音脚手架与生词表，完美适配 Obsidian 双链。</p>
+            <p>在转换工作台选择「华裔双语课程」或「东亚文史研讨」预设，自动生成中英分轨对照、80+ 华裔文史拼音脚手架与生词表，完美适配 Obsidian 双链。</p>
           </article>
           <article>
             <b>02</b>
             <h3>长辈口述历史与家庭档案</h3>
-            <p>选择「长辈口述历史」预设。支持中英夹杂与带口音访谈，生成原汁原味的叙事实录、移民大事年表与后辈寄语。</p>
+            <p>选择「长辈口述历史」预设。支持中英夹杂与带口音访谈，生成原汁原味叙事实录、移民大事年表与后辈寄语。</p>
           </article>
           <article>
             <b>03</b>
-            <h3>Anki 闪卡一键提取</h3>
-            <p>在结果页预览任意 Markdown，点击「导出 Anki 闪卡」即可自动提取文中的成语、文化专有名词为 Anki TSV 导入包。</p>
+            <h3>Anki 闪卡与双语对齐</h3>
+            <p>在结果页支持文内搜索、实时高亮；一键导出 TSV/CSV 闪卡卡片包，或快速提取纯净双语对齐文本粘贴至作业。</p>
           </article>
           <p class="guide-note">🔒 隐私承诺：所有音视频与访谈均在本地处理，绝不上传商业云端，保护长辈与家庭历史零泄露。</p>
         </div>
 
         <div v-else-if="infoPanel === 'help'" class="guide-grid">
           <article><b>01</b><h3>导入音视频/录音</h3><p>在「准备」页选择本地音视频、长辈录音、文档，或添加公开讲座链接。</p></article>
-          <article><b>02</b><h3>选择场景预设</h3><p>在「华裔双语场景」中点击对应的预设卡片，自动匹配专属整理提示词。</p></article>
-          <article><b>03</b><h3>导出 Obsidian & Anki</h3><p>在「结果」页一键导出为带 Callout 的 Obsidian 康奈尔笔记或 Anki 闪卡包。</p></article>
+          <article><b>02</b><h3>选择场景预设</h3><p>在「华裔双语场景」中点击 5 套场景预设之一（如东亚文史研讨），自动匹配提示词。</p></article>
+          <article><b>03</b><h3>多视图预览与导出</h3><p>在「结果」页使用文内搜索、拼音注音、双语对齐，并一键导出 Obsidian 与 Anki。</p></article>
           <p class="guide-note">运行前请确认侧栏底部 Python 与 ffmpeg 均为 ✓。密钥当前随项目保存在本机 DPAPI 加密存储中。</p>
         </div>
 
         <div v-else class="changelog">
-          <span class="release-pill">v2.0.0 华裔专属版</span>
-          <h3>从个人工具到华裔大学生成长利器</h3>
+          <span class="release-pill">v2.1.0 学习日常深化版</span>
+          <h3>贴近大学日常学习与双语研讨的全面升级</h3>
           <ul>
-            <li>🎓 <b>华裔专属场景预设</b>：内置双语课程、长辈口述历史、Anki 闪卡与中英语码转换专属提示词。</li>
-            <li>📇 <b>Anki 闪卡生成器</b>：一键将讲座生词、文化成语自动导出为标准 Anki CSV 卡片包。</li>
-            <li>📚 <b>Obsidian 康奈尔笔记</b>：输出适配 Obsidian Callouts (`> [!NOTE]`) 的结构化双语笔记。</li>
-            <li>🀄 <b>拼音注音脚手架</b>：提供 HTML &lt;ruby&gt; 拼音注音高亮，帮助华裔学生攻克认字障碍。</li>
-            <li>🔒 <b>100% 本地端侧隐私</b>：基于 Tauri v2 + Rust，保障家庭口述历史与敏感访谈绝不上云。</li>
+            <li>🔍 <b>讲座长文内搜索与高亮</b>：结果页新增文内快速关键词检索，实时匹配计数与高亮显示，告别长录音翻阅困难。</li>
+            <li>🀄 <b>80+ 核心华裔文史词汇脚手架</b>：拼音字典扩展至排华法案、天使岛、宗族公所、文史研讨等全场景高频词。</li>
+            <li>📖 <b>新增「东亚文史研讨」场景</b>：专为大学东亚系研讨课与古籍研读打造，自动提取典故源流与学术争鸣。</li>
+            <li>🌐 <b>四重视图快速切换</b>：预览窗口支持「标准正文」、「拼音注音」、「双语对齐分轨」、「考前核心要点」一键切换。</li>
+            <li>⚡ <b>表格行级极速操作</b>：结果列表支持无需弹窗直接「快速复制」全文与「闪卡」一键提取导出。</li>
+            <li>📇 <b>多格式 Anki 导出</b>：支持原生 TSV 与标准 CSV 双格式导出，无缝适配各类闪卡记忆软件。</li>
           </ul>
-          <p>本版本专为美国华裔大学生与家庭口述历史数字化打造，融合系统级工程效率与人文温度。</p>
+          <p>本版本重点优化日常自习、备考与家庭口述整理流程，让工具更轻巧顺手。</p>
         </div>
       </section>
     </div>

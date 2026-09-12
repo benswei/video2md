@@ -1,6 +1,6 @@
 [package]
 name = "heritagescribe"
-version = "2.0.0"
+version = "2.1.0"
 description = "HeritageScribe - Local-first bilingual lecture transcriber and oral history archiver for heritage students"
 authors = ["Michael Yang <microsoftgame>", "HeritageScribe Contributors"]
 edition = "2021"

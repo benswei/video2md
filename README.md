@@ -1,13 +1,14 @@
-# HeritageScribe (声华笔记) · v2.0
+# HeritageScribe (声华笔记) · v2.1
 
 > **A Local-First, Privacy-Preserving Bilingual Lecture & Oral History Transcriber for Asian-American Heritage Students**  
-> *面向美国华裔大学生的本地端侧双语课程转写与代际口述历史数字化工作台*
+> *面向美国华裔大学生的本地端侧双语课程转写与代际口述历史数字化工作台 (v2.1 Daily Scaffolding Edition)*
 
+[![Version](https://img.shields.io/badge/Release-v2.1.0-emerald.svg)](CHANGELOG.md)
 [![Tauri v2](https://img.shields.io/badge/Tauri-v2.0-blue.svg?logo=tauri)](https://v2.tauri.app/)
 [![Rust Engine](https://img.shields.io/badge/Rust-Core-orange.svg?logo=rust)](https://www.rust-lang.org/)
 [![Vue 3 + TypeScript](https://img.shields.io/badge/Frontend-Vue%203%20%2B%20TS-42b883.svg?logo=vue.js)](https://vuejs.org/)
 [![Obsidian Ready](https://img.shields.io/badge/Obsidian-Cornell%20Callouts-purple.svg)](https://obsidian.md/)
-[![Anki Flashcards](https://img.shields.io/badge/Anki-CSV%20Export-blue)](https://apps.ankiweb.net/)
+[![Anki Flashcards](https://img.shields.io/badge/Anki-TSV%2FCSV%20Export-blue)](https://apps.ankiweb.net/)
 [![Privacy](https://img.shields.io/badge/Privacy-100%25%20On--Device-success.svg)](#privacy--security-guarantee)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 
@@ -57,15 +58,21 @@ graph LR
 
 ### 📇 3. Anki 闪卡卡片包一键导出 (One-Click Anki Deck Export)
 * 自动扫描转写与整理结果，智能提取讲座与访谈中出现的成语（Idioms）、文化专有名词、学术术语。
-* 结果页面一键生成并下载标准格式的 `*_Anki.csv`，支持直接批量导入 **Anki** 进行间隔重复记忆复习。
+* 结果页面一键生成并下载标准格式的 `*_Anki.tsv` 或 `*_Anki.csv`，支持直接批量导入 **Anki** 进行间隔重复记忆复习。
 
-### 🎙️ 4. 长辈口述历史与家族大事年表 (Oral History & Timeline)
+### 🔍 4. v2.1 学习日常深化特性 (v2.1 Daily Scaffolding Highlights)
+* **讲座长文内快速检索与高亮**：针对 1-2 小时超长讲座或口述历史实录，支持文内实时关键词搜索与匹配计数；
+* **80+ 华裔文史核心字典**：内置排华法案、天使岛、侨乡会馆、宗族家谱、典故考据等高频词拼音映射；
+* **四重视图随心切换**：标准 Markdown、拼音注音、双语对齐、考前核心要点，一键即时无缝切换；
+* **东亚文史研讨专属预设**：专攻大学古籍文史精读与双语研讨，自动对齐学术争鸣。
+
+### 🎙️ 5. 长辈口述历史与家族大事年表 (Oral History & Timeline)
 * 专为第一代移民口述设计：
   * 保留“金山客”、“同乡会”、“餐馆生计”等特定移民文化原词，加注英文社会历史注解；
   * 自动提炼长辈一生的地理迁移与时代事件，生成结构化**家族/社区大事年表（Milestone Timeline）**；
   * 提炼长辈对后代的精神嘱托（Legacy & Resilience）。
 
-### 🔒 5. 100% 端侧隐私与零运行成本 (Local-First Privacy & Zero Cloud Leak)
+### 🔒 6. 100% 端侧隐私与零运行成本 (Local-First Privacy & Zero Cloud Leak)
 * 架构完全采用 **Local-First（端侧优先）** 原则：
   * 录音文件全程存放在学生本机内存与本地磁盘中，零中转、零上传；
   * 本地 API 密钥通过 **Windows DPAPI** 系统级硬件加密，保障个人敏感配置绝对安全；

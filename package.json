@@ -1,8 +1,8 @@
 {
   "name": "heritagescribe",
   "private": true,
-  "version": "2.0.0",
-  "description": "HeritageScribe (Video2MD v2.0) - Local-First Bilingual Lecture & Oral History Transcriber for Asian-American Heritage Students",
+  "version": "2.1.0",
+  "description": "HeritageScribe (Video2MD v2.1) - Local-First Bilingual Lecture & Oral History Transcriber for Asian-American Heritage Students",
   "type": "module",
   "scripts": {
     "dev": "vite",

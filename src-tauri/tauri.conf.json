@@ -1,7 +1,7 @@
 {
   "$schema": "https://raw.githubusercontent.com/nicmr/tauri-v2-schema/main/schema.json",
   "productName": "HeritageScribe",
-  "version": "2.0.0",
+  "version": "2.1.0",
   "identifier": "com.heritagescribe.app",
   "build": {
     "beforeDevCommand": "npm run dev",
@@ -13,7 +13,7 @@
     "withGlobalTauri": true,
     "windows": [
       {
-        "title": "HeritageScribe (声华笔记) — 华裔双语讲座与口述历史数字化工作台 v2.0",
+        "title": "HeritageScribe (声华笔记) — 华裔双语讲座与口述历史数字化工作台 v2.1",
         "width": 1280,
         "height": 800,
         "minWidth": 900,
